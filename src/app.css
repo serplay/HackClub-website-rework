@@ -84,6 +84,25 @@
   --shadow-card: 0 4px 8px rgba(0, 0, 0, 0.125);
   --shadow-elevated: 0 1px 2px rgba(0, 0, 0, 0.0625),
     0 8px 12px rgba(0, 0, 0, 0.125);
+  --invert: invert(0);
+}
+
+
+[data-theme="dark"] {
+  --text: var(--white);
+  --background: var(--darker);
+  --elevated: var(--dark);
+  --sheet: var(--darkless);
+  --sunken: var(--steel);
+  --border: var(--slate);
+  --primary: #ec3750;
+  --secondary: #8492a6;
+  --accent: #5bc0de;
+  --twitter: #1da1f2;
+  --facebook: #3b5998;
+  --instagram: #e1306c;
+  --invert: invert(1);
+
 }
 
 body {
@@ -107,6 +126,10 @@ body {
 
 .monospace {
   font-family: "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
+}
+
+.theme-icon {
+  filter: var(--invert);
 }
 
 .heading {
