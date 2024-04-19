@@ -105,7 +105,24 @@
 
 }
 
+[data-theme="dark"] {
+  --text: var(--white);
+  --background: var(--darker);
+  --elevated: var(--dark);
+  --sheet: var(--darkless);
+  --sunken: var(--steel);
+  --border: var(--slate);
+  --primary: #ec3750;
+  --secondary: #8492a6;
+  --accent: #5bc0de;
+  --twitter: #1da1f2;
+  --facebook: #3b5998;
+  --instagram: #e1306c;
+
+}
+
 body {
+  background: var(--background);
   font-family: "Phantom Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, sans-serif;
   line-height: var(--line-height-body);
@@ -529,7 +546,21 @@ td {
   vertical-align: top;
   border-bottom-width: 1px;
 }
-
+.small-square {
+    width: 20px;
+  }
+.medium-rounded {
+    width: 50px;
+    border-radius: 10%;
+  }
+.large-circular {
+    width: 100px;
+    border-radius: 50%;
+  }
+.small-circular {
+    width: 20px;
+    border-radius: 50%;
+}
 
 @media screen and (min-width: 32em) {
   .ultratitle {

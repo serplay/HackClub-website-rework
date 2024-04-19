@@ -1,5 +1,6 @@
 <script>
     import theme_icon from '../assets/theme_but.svg'
+  
     function themeSwith() {
         const currentTheme = document.body.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
