@@ -3,11 +3,11 @@
   import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
   import github from "super-tiny-icons/images/svg/github.svg"
-  
+  import ThemeSw from "./lib/ThemeSwitch.svelte"
 </script>
 
 <main>
-  
+  <ThemeSw />
   <div>
     <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
       <img src={viteLogo} class="logo" alt="Vite Logo" />
