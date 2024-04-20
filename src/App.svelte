@@ -1,4 +1,11 @@
+<svelte:head>
+  <title>ALOPB Hack Club</title>
+  <link rel="icon" href={Favico} type="image/svg+xml">
+ </svelte:head>
+
 <script lang="ts">
+  import { onMount } from 'svelte';
+  import { setTitle } from './lib/title.js';
   import github from "./assets/icons/github.svg"
   import discord from "./assets/icons/discord.svg"
   import facebook from "./assets/icons/facebook.svg"
@@ -7,13 +14,10 @@
   import Menu from "./lib/menu.svelte"
   import ALOPB from "./assets/icons/ALOPB-vector.svg"
   import Favico from "./assets/icons/favicon.svg"
+  onMount(setTitle);
 </script>
 
 <main>
-  <head>
-    <title>ALOPB Hack Clubasdasd</title>
-    <link rel="icon" href={Favico} type="image/svg+xml">
-  </head>
   <header>
         <div class="menu-icon">
           <Menu />
