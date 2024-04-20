@@ -1,5 +1,5 @@
 <script>
-    import theme_icon from '../assets/theme_but.svg'
+    import theme_icon from '../assets/icons/theme_but.svg'
   
     function themeSwith() {
         const currentTheme = document.body.getAttribute('data-theme');

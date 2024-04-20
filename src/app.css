@@ -102,22 +102,7 @@
   --facebook: #3b5998;
   --instagram: #e1306c;
   --invert: invert(1);
-
-}
-
-[data-theme="dark"] {
-  --text: var(--white);
-  --background: var(--darker);
-  --elevated: var(--dark);
-  --sheet: var(--darkless);
-  --sunken: var(--steel);
-  --border: var(--slate);
-  --primary: #ec3750;
-  --secondary: #8492a6;
-  --accent: #5bc0de;
-  --twitter: #1da1f2;
-  --facebook: #3b5998;
-  --instagram: #e1306c;
+  --border: var(--steel);
 
 }
 
@@ -147,6 +132,22 @@ body {
 
 .theme-icon {
   filter: var(--invert);
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-4);
+
+}
+
+
+.bar {
+  margin: 0 auto;
+  width: 98%;
+  border-radius: 5px;
+  height: 2px; /* Adjust the height as needed */
+  background-color: var(--border); /* Color of the bar */
 }
 
 .heading {
