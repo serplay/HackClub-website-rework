@@ -8,7 +8,9 @@
 
 <main>
   <ThemeSw />
-
+  <h1>
+    MAIN PAGE IDK COS TU BEDZIE, NAPEWNO SCHEDULE EVENTÓW AKA HACKATONÓw
+  </h1>
   <footer>
     <div class="bar"></div>
     <div class="footer-icons">
