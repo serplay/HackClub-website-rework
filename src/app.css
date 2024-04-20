@@ -1,4 +1,5 @@
 :root {
+  --darkest: #0b0b0e;
   --darker: #121217;
   --dark: #17171d;
   --darkless: #252429;
@@ -85,11 +86,13 @@
   --shadow-elevated: 0 1px 2px rgba(0, 0, 0, 0.0625),
     0 8px 12px rgba(0, 0, 0, 0.125);
   --invert: invert(0);
+  --header-color: var(--smoke);
 }
 
 
 [data-theme="dark"] {
   --text: var(--white);
+  --header-color: var(--darkest);
   --background: var(--darker);
   --elevated: var(--dark);
   --sheet: var(--darkless);
@@ -124,7 +127,47 @@ body {
 
 * {
   box-sizing: border-box;
-}
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--header); 
+    position: relative;
+  }
+
+  .menu {
+    position: fixed;
+    top: auto;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: var(--header-color); 
+    border: 1px solid var(--border); 
+    border-radius: 5px; 
+    padding: 50px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+  }
+  
+  .menu.open {
+    transform: translateX(0);
+  }
+  
+  .menu-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
 .monospace {
   font-family: "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
@@ -552,6 +595,7 @@ td {
   }
 .medium-rounded {
     width: 50px;
+    height: 50px;
     border-radius: 10%;
   }
 .large-circular {

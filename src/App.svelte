@@ -4,13 +4,37 @@
   import facebook from "./assets/icons/facebook.svg"
   import hackclub from "./assets/icons/hackclub.svg"
   import ThemeSw from "./lib/ThemeSwitch.svelte"
+  import Menu from "./lib/menu.svelte"
+  import ALOPB from "./assets/icons/ALOPB-vector.svg"
 </script>
 
 <main>
-  <ThemeSw />
-  <h1>
-    MAIN PAGE IDK COS TU BEDZIE, NAPEWNO SCHEDULE EVENTÓW AKA HACKATONÓw
-  </h1>
+  <header>
+        <div class="menu-icon">
+          <Menu />
+        </div>
+        <div class="logo-container">
+          <a href="." class="logo-link">
+            <img src={ ALOPB } class="logo-icon medium-rounded" alt="Logo">
+          </a>
+        </div>
+      <ThemeSw />
+  </header>
+  <nav class="menu" id="menu">
+    Dokumentacja
+    Eventy
+    Plany na przyszłość
+    Jakiś shit
+    Uhhh
+    Idk
+  </nav>
+  <div class="bar"></div>
+  <div>
+    <h1>
+      MAIN PAGE IDK COS TU BEDZIE, NAPEWNO SCHEDULE EVENTÓW AKA HACKATONÓw
+    </h1>
+  </div>
+  
   <footer>
     <div class="bar"></div>
     <div class="footer-icons">
