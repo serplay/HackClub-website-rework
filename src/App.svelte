@@ -6,9 +6,14 @@
   import ThemeSw from "./lib/ThemeSwitch.svelte"
   import Menu from "./lib/menu.svelte"
   import ALOPB from "./assets/icons/ALOPB-vector.svg"
+  import Favico from "./assets/icons/favicon.svg"
 </script>
 
 <main>
+  <head>
+    <title>ALOPB Hack Clubasdasd</title>
+    <link rel="icon" href={Favico} type="image/svg+xml">
+  </head>
   <header>
         <div class="menu-icon">
           <Menu />
