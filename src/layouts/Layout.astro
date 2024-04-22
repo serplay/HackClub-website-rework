@@ -34,17 +34,19 @@ const { title } = Astro.props;
 				
 		</header>
 		<nav class="menu" id="menu">
-			Dokumentacja
-			Eventy
-			Plany na przyszłość
-			Jakiś shit
-			Uhhh
-			Idk
+			<ul>
+        <li>
+
+        </li>
+        <li>
+
+        </li>
+      </ul>
 		</nav>
 		<div class="bar"></div>
 		<slot />
 		
-		<footer style="position: fixed; bottom: 0px; width: 100%; margin-bottom: 20px;">
+		<footer style="width: 100%; margin-bottom: 20px;">
 			<div class="bar"></div>
 			<div class="footer-icons">
 			  <a href="https://www.facebook.com/LiceumPB" class="footer-link" style="margin: 0 25px;" target="_blank">
@@ -56,13 +58,14 @@ const { title } = Astro.props;
 			  <a href="https://github.com/ALOPB-Hack-Club" class="footer-link" style="margin: 0 25px;" target="_blank">
 				<Icon name="github" class="theme-icon medium-rounded" style="color: black">
 			  </a>
-			  <a href="https://discord.gg/yourinvitecode" class="footer-link" style="margin: 0 25px;" target="_blank">
+			  <a href="https://discord.gg/v4m9dpdeWa" class="footer-link" style="margin: 0 25px;" target="_blank">
 				<Icon name="discord" class="theme-icon medium-rounded" style="color: black">
 			  </a>
 			</div>
 		</footer>
 	</body>
 </html>
+
 <style is:global>
 	:root {
   --darkest: #0b0b0e;
@@ -183,7 +186,6 @@ body {
   font-weight: var(--font-weight-body);
   margin: 0;
   padding: 0;
-  overflow: hidden;
   min-height: 100vh;
   text-rendering: optimizeLegibility;
   font-smooth: antialiased;
@@ -191,6 +193,7 @@ body {
   -webkit-font-smoothing: antialiased;
   color: var(--text);
   box-sizing: border-box;
+  flex-direction: column;
 }
 
 * {
@@ -203,7 +206,15 @@ body {
     align-items: center;
     padding: 10px 20px;
     background: var(--header); 
-    position: relative;
+    flex-shrink: 0;
+  }
+
+  slot {
+    flex: 1 0 auto;
+  }
+
+  footer {
+    flex-shrink: 0;
   }
 
   .menu {
@@ -219,6 +230,7 @@ body {
     box-sizing: border-box;
     transition: transform 0.3s ease-in-out;
     transform: translateX(-100%);
+    z-index: 1000;
   }
   
   .menu.open {

@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="404 Upss...">
+<main>
+    <div class="full-page">
+        <h1>404 Upss...</h1>
+        <Icon name="404" style="width: 50%; height: 50%;"></Icon>
+    </div>
+</main>
+</Layout>
+
+
+<style>
+    .full-page {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 75vh;
+    }
+    </style>
