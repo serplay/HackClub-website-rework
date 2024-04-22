@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+---
+<script>
+let menuOpen = false;
+    const button = document.getElementById("menu-button");
+    button?.addEventListener("click", toggleMenu);
+
+    function toggleMenu() {
+        menuOpen = !menuOpen;
+        if (menuOpen) {
+            document.getElementById("menu")?.classList.add("open");
+        } else {
+            document.getElementById("menu")?.classList.remove("open");
+        }
+    }
+</script>
+<button style="width: 50px; height: 50px; border-radius: 10px"id="menu-button"><Icon name="menu"></button>

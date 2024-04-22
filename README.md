@@ -16,5 +16,4 @@ This new version of the website will include:
 
 This project is built with the following technologies:
 
-- **[Svelte](https://svelte.dev/)**: A revolutionary component framework that compiles your code to tiny, framework-less vanilla JS.
-- **[Vite](https://vitejs.dev/)**: A modern frontend build tool that provides a faster and leaner development experience.
+- **[Astro](https://astro.build/)**: The web framework for content-driven websites
