@@ -1,0 +1,21 @@
+---
+import Card from "../../components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+export const content = await Astro.glob("./*.md");
+---
+
+<Layout title="Docs">
+    <main>
+        {
+            content.map((site, i) => (
+                <Card
+                    href={site.url ?? "/"}
+                    title={`${i + 1}. ${
+                        site.frontmatter.title ?? site.getHeadings()[0].text
+                    }`}
+                    body={site.frontmatter.body}
+                />
+            ))
+        }
+    </main>
+</Layout>

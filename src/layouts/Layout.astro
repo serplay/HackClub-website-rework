@@ -6,6 +6,7 @@ interface Props {
 
 import ThemeSw from "../components/ThemeSwitch.astro";
 import Menu from "../components/menu.astro";
+import Menu_card from "../components/menu_card.astro";
 import { Icon } from "astro-icon/components";
 const { title } = Astro.props;
 ---
@@ -16,7 +17,7 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="https://raw.githubusercontent.com/serplay/HackClub-website-rework/main/src/public/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
@@ -34,14 +35,10 @@ const { title } = Astro.props;
 				
 		</header>
 		<nav class="menu" id="menu">
-			<ul>
-        <li>
+      <Menu_card href="/" title="Home"></Menu_card>
+      <Menu_card href="/docs" title="Dokumenty"></Menu_card>
+      <Menu_card href="/about" title="O nas"></Menu_card>
 
-        </li>
-        <li>
-
-        </li>
-      </ul>
 		</nav>
 		<div class="bar"></div>
 		<slot />
@@ -85,14 +82,14 @@ const { title } = Astro.props;
   --green: #33d6a6;
   --cyan: #5bc0de;
   --blue: #338eda;
-  --purple: #a633d6;
+  --purple: #db4fc9;
   --text: var(--black);
   --background: var(--white);
   --elevated: var(--white);
   --sheet: var(--snow);
   --sunken: var(--smoke);
   --border: var(--smoke);
-  --primary: #ec3750;
+  --primary: var(--purple);
   --secondary: #8492a6;
   --accent: #5bc0de;
   --twitter: #1da1f2;
@@ -156,6 +153,10 @@ const { title } = Astro.props;
     0 8px 12px rgba(0, 0, 0, 0.125);
   --invert: invert(0);
   --header-color: var(--smoke);
+  --accent: var(--purple);
+  --accent-light: var(--white);
+  --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-light));
+  --card-color: var(--snow);
 }
 
 
@@ -175,10 +176,15 @@ const { title } = Astro.props;
   --instagram: #e1306c;
   --invert: invert(1);
   --border: var(--steel);
+  --accent: var(--red);
+  --accent-light: var(--slate);
+  --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-light));
+  --card-color: var(--dark);
 
 }
 
 body {
+  width: 100%;
   background: var(--background);
   font-family: "Phantom Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, sans-serif;
@@ -221,12 +227,12 @@ body {
     position: fixed;
     top: auto;
     left: 0;
-    width: 250px;
+    width: 300px;
     height: 100%;
     background-color: var(--header-color); 
     border: 1px solid var(--border); 
     border-radius: 5px; 
-    padding: 50px;
+    padding: 3px;
     box-sizing: border-box;
     transition: transform 0.3s ease-in-out;
     transform: translateX(-100%);
@@ -387,8 +393,8 @@ button {
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
-  color: var(--theme-ui-colors-white, #ffffff);
-  background-color: var(--theme-ui-colors-primary, #ec3750);
+  color: var(---background);
+  background-color: var(--primary);
   border: 0;
   font-size: var(--font-2);
 }

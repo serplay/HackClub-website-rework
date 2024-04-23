@@ -1,0 +1,166 @@
+---
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="url" content={import.meta.env.URL} />
+        <meta name="description" content="ALOPB HackClub" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body>
+        <a class="back-button" href="/docs">
+            <div class="centered">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com/ License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            </div>
+        </a>
+        <slot />
+    </body>
+</html>
+<style is:global>
+    :root {
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+            45deg,
+            rgb(var(--accent)),
+            rgb(var(--accent-light)) 30%,
+            white 60%
+        );
+    }
+    html {
+        font-family: system-ui, sans-serif;
+        background: #13151a;
+        background-size: 224px;
+        padding: 10px
+    }
+    body {
+        max-width: 60em;
+        margin: auto;
+    }
+
+    .centered {
+        color: black;
+    }
+
+    .back-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 9999px;
+        background-color: #eee;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 1em;
+        color: white;
+    }
+
+    h1 {
+        background-color: #333;
+        padding: 10px;
+        border-radius: 12px;
+        border: solid;
+        border-color: #555;
+        border-width: 4px;
+    }
+
+    h2 {
+        background-color: #333;
+        padding: 8px;
+        border-radius: 12px;
+        border: solid;
+        border-color: #555;
+        border-width: 3px;
+    }
+
+    p {
+        margin-top: 0.5rem;
+        margin-bottom: 0;
+        color: white;
+    }
+
+    ul,
+    li {
+        color: white;
+    }
+
+    table {
+        table-layout: fixed;
+        border-collapse: collapse;
+        color: white;
+        border: 1px solid white;
+    }
+
+    td {
+        border: 1px solid white;
+    }
+
+    a {
+        color: #bb44ff;
+    }
+
+    a:visited {
+        color: #4444ff;
+    }
+
+    img {
+        height: min-content;
+        max-width: 100%;
+        object-fit: scale-down;
+    }
+    
+    pre {
+        background-color: #D1D1D0;
+        overflow: auto;
+        font-family: 'Monaco', monospace;
+        padding: 1em 1em;
+        border-radius: 8px;
+    }
+
+    code {
+        font-family: Monaco, monospace;
+        font-size: $base-font-size;
+        line-height: 100%;
+        background-color: #080808;
+        padding: 0 0.2em;
+        overflow-wrap: break-word;
+        border-radius: 5px;
+    }
+
+    pre code {
+        border: none;
+        background: none;
+        font-size: $base-font-size * 0.875;
+        line-height: 1em;
+        letter-spacing: normal;
+        word-break: break-all;
+    }
+
+    blockquote {
+        background-color: #333;
+        border-radius: 8px;
+        padding: 8px;
+    }
+</style>
