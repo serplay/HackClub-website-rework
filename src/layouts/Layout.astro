@@ -2,12 +2,9 @@
 interface Props {
 	title: string;
 }
-
-
-import ThemeSw from "../components/ThemeSwitch.astro";
-import Menu from "../components/menu.astro";
-import Menu_card from "../components/menu_card.astro";
-import { Icon } from "astro-icon/components";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import MenuCard from "../components/MenuCard.astro"; 
 const { title } = Astro.props;
 ---
 
@@ -22,44 +19,16 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<header style="margin-top: 20px; margin-bottom: 10px; align: center;">
-			<div class="menu-icon" style="margin-left: 20px">
-				<Menu></Menu>
-			</div>
-			<div class="logo-container">
-				<a href="." class="logo-link">
-					<Icon name="ALOPB-vector" class="logo-icon medium-rounded" >
-				</a>
-			</div>
-				<ThemeSw></ThemeSw>
-				
-		</header>
-		<nav class="menu" id="menu">
-      <Menu_card href="/" title="Home"></Menu_card>
-      <Menu_card href="/docs" title="Dokumenty"></Menu_card>
-      <Menu_card href="/about" title="O nas"></Menu_card>
-
-		</nav>
-		<div class="bar"></div>
-		<slot />
-		
-		<footer style="width: 100%; margin-bottom: 20px;">
-			<div class="bar"></div>
-			<div class="footer-icons">
-			  <a href="https://www.facebook.com/LiceumPB" class="footer-link" style="margin: 0 25px;" target="_blank">
-				<Icon name="facebook" class="theme-icon medium-rounded" style="color: black">
-			  </a>
-			  <a href="https://hackclub.com" class="footer-link" style="margin: 0 25px;" target="_blank">
-				<Icon name="hackclub" class="theme-icon medium-rounded" style="color: black">
-			  </a>
-			  <a href="https://github.com/ALOPB-Hack-Club" class="footer-link" style="margin: 0 25px;" target="_blank">
-				<Icon name="github" class="theme-icon medium-rounded" style="color: black">
-			  </a>
-			  <a href="https://discord.gg/v4m9dpdeWa" class="footer-link" style="margin: 0 25px;" target="_blank">
-				<Icon name="discord" class="theme-icon medium-rounded" style="color: black">
-			  </a>
-			</div>
-		</footer>
+    <div class="site-container">
+		  <Header />
+		  <nav class="menu" id="menu">
+        <MenuCard href="/" title="Home"></Menu_card>
+        <MenuCard href="/docs" title="Dokumenty"></Menu_card>
+        <MenuCard href="/about" title="O nas"></Menu_card>
+		  </nav>
+		  <slot />
+		  <Footer/>
+    </div>
 	</body>
 </html>
 
@@ -82,14 +51,14 @@ const { title } = Astro.props;
   --green: #33d6a6;
   --cyan: #5bc0de;
   --blue: #338eda;
-  --purple: #db4fc9;
+  --pink: #e260d1;
   --text: var(--black);
   --background: var(--white);
   --elevated: var(--white);
   --sheet: var(--snow);
   --sunken: var(--smoke);
-  --border: var(--smoke);
-  --primary: var(--purple);
+  --border: var(--muted);
+  --primary: var(--pink);
   --secondary: #8492a6;
   --accent: #5bc0de;
   --twitter: #1da1f2;
@@ -153,11 +122,12 @@ const { title } = Astro.props;
     0 8px 12px rgba(0, 0, 0, 0.125);
   --invert: invert(0);
   --header-color: var(--smoke);
-  --accent: var(--purple);
+  --accent: var(--pink);
   --accent-light: var(--white);
   --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-light));
-  --menu-card-color: var(--snow);
+  --menu-card-color: var(--smoke);
   --card-color: var(--smoke);
+  --bar: var(--muted);
 }
 
 
@@ -169,6 +139,7 @@ const { title } = Astro.props;
   --sheet: var(--darkless);
   --sunken: var(--steel);
   --border: var(--slate);
+  --bar: var(--primary);
   --primary: #ec3750;
   --secondary: #8492a6;
   --accent: #5bc0de;
@@ -179,13 +150,15 @@ const { title } = Astro.props;
   --accent: var(--red);
   --accent-light: var(--slate);
   --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-light));
-  --menu-card-color: var(--dark);
-  --card-color: var(--steel);
+  --menu-card-color: var(--darkest);
+  --card-color: var(--dark);
 
 }
 
 body {
+  display: flex;
   min-width: 100vw;
+  min-height: 100vh;
   background: var(--background);
   font-family: "Phantom Sans", system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, sans-serif;
@@ -193,7 +166,6 @@ body {
   font-weight: var(--font-weight-body);
   margin: 0;
   padding: 0;
-  min-height: 100vh;
   text-rendering: optimizeLegibility;
   font-smooth: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -207,85 +179,30 @@ body {
   box-sizing: border-box;
   }
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: var(--header); 
-    flex-shrink: 0;
-  }
-
-  slot {
-    flex: 1 0 auto;
-  }
-
-  footer {
-    flex-shrink: 0;
-  }
-
-  .menu {
-    position: fixed;
-    top: auto;
-    left: 0;
-    width: 300px;
-    height: 100%;
-    background-color: var(--header-color); 
-    border-right: 1px solid var(--border);
-    border-top: 2px solid var(--border);
-    border-radius: 5px; 
-    padding: 3px;
-    box-sizing: border-box;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(-100%);
-    z-index: 1000;
-  }
-  
-  .menu.open {
-    transform: translateX(0);
-  }
-  
-  .menu-icon {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .logo-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-.monospace {
-  font-family: "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
-}
-
-.theme-icon {
-  filter: var(--invert);
-}
-
-.footer-icons {
+  .site-container {
   display: flex;
-  justify-content: center;
-  margin-top: var(--spacing-4);
-
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content:space-between;
+  align-items: stretch;
+  position: relative;
 }
 
-
-.bar {
-  margin: 0 auto;
-  width: 98%;
-  border-radius: 5px;
-  height: 2px; /* Adjust the height as needed */
-  background-color: var(--border); /* Color of the bar */
+.menu {
+  position: absolute;
+  top: 80px;
+  bottom: 0; 
+  width: 300px; 
+  overflow-y: auto; 
+  background-color: var(--header-color);
+  border-right: 2px solid var(--border);
+  z-index: 5;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
 }
 
-.heading {
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-heading);
-  margin-top: 0;
-  margin-bottom: 0;
+.menu.open {
+  transform: translateX(0);
 }
 
 .ultratitle {
@@ -323,51 +240,6 @@ body {
   letter-spacing: var(--letter-spacing-headline);
 }
 
-.eyebrow {
-  color: var(--muted);
-  font-weight: var(--font-weight-heading);
-  letter-spacing: var(--letter-spacing-headline);
-  line-height: var(--line-height-subheading);
-  text-transform: uppercase;
-  margin-top: var(--spacing-0);
-  margin-bottom: var(--spacing-2);
-}
-
-.lead {
-  font-weight: var(--font-weight-body);
-}
-
-.caption {
-  color: var(--muted);
-  font-weight: var(--font-weight-body);
-  letter-spacing: var(--letter-spacing-headline);
-  line-height: var(--line-height-caption);
-}
-
-.pill {
-  border-radius: var(--radii-circle);
-  padding-left: var(--spacing-3);
-  padding-right: var(--spacing-3);
-  padding-top: var(--spacing-1);
-  padding-bottom: var(--spacing-1);
-  font-size: var(--font-2);
-  background: var(--primary);
-  color: var(--background);
-  font-weight: var(--font-weight-bold);
-}
-
-.outline-badge {
-  border-radius: var(--radii-circle);
-  padding-left: var(--spacing-3);
-  padding-right: var(--spacing-3);
-  padding-top: var(--spacing-1);
-  padding-bottom: var(--spacing-1);
-  font-size: var(--font-2);
-  background: none;
-  color: var(--muted);
-  border: 1px solid currentcolor;
-  font-weight: var(--font-weight-body);
-}
 
 button {
   cursor: pointer;
@@ -382,11 +254,10 @@ button {
   -webkit-tap-highlight-color: transparent;
   transition: transform 0.125s ease-in-out, box-shadow 0.125s ease-in-out;
   box-sizing: border-box;
-  margin: 0;
+  margin: 5px;
   min-width: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
   text-align: center;
   line-height: inherit;
   -webkit-text-decoration: none;
@@ -399,6 +270,7 @@ button {
   background-color: var(--primary);
   border: 0;
   font-size: var(--font-2);
+  transition: background-color 0.3s;
 }
 
 button:focus,
@@ -625,7 +497,7 @@ pre > code {
 code {
   font-family: "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
   font-size: inherit;
-  color: var(--purple);
+  color: var(--pink);
   background: var(--sunken);
   overflow: auto;
   border-radius: var(--radii-small);
@@ -769,5 +641,7 @@ td {
   .container.narrow {
     max-width: var(--size-narrow-plus);
   }
+}
+
 }
 </style>
