@@ -130,6 +130,8 @@ const { title } = Astro.props;
   --menu-card-color: var(--white);
   --card-color: var(--white);
   --bar: var(--muted);
+  --link: var(cyan);
+  --link-visited: var(--accent);
 }
 
 
@@ -154,7 +156,8 @@ const { title } = Astro.props;
   --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-light));
   --menu-card-color: var(--darkest);
   --card-color: var(--dark);
-  --link: var(--primary);
+  --link: var(--accent);
+  --link-visited: var(purple);
 
 
 }
@@ -366,6 +369,15 @@ td {
   vertical-align: top;
   border-bottom-width: 1px;
 }
+
+a {
+        color: var(--link);
+    }
+
+    a:visited {
+        color: var(--link-visited););
+    }
+
 .small-square {
     width: 20px;
   }
