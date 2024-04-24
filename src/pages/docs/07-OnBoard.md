@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/DocumentLayout.astro
+title: OnBoard
 ---
 
 # Jak aplikować o grant OnBoard?

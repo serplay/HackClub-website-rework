@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/DocumentLayout.astro
+title: Github Student Pack
 ---
 
 # GitHub Student Developer Pack

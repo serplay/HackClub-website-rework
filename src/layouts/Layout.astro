@@ -4,7 +4,7 @@ interface Props {
 }
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import MenuCard from "../components/MenuCard.astro"; 
+import MenuCard from "../components/MenuCard.astro";
 const { title } = Astro.props;
 ---
 
@@ -26,7 +26,9 @@ const { title } = Astro.props;
         <MenuCard href="/docs" title="Dokumenty"></Menu_card>
         <MenuCard href="/about" title="O nas"></Menu_card>
 		  </nav>
+      <div class="content">
 		  <slot />
+      </div>
 		  <Footer/>
     </div>
 	</body>
@@ -53,7 +55,7 @@ const { title } = Astro.props;
   --blue: #338eda;
   --pink: #e260d1;
   --text: var(--black);
-  --background: var(--white);
+  --background: var(--smoke);
   --elevated: var(--white);
   --sheet: var(--snow);
   --sunken: var(--smoke);
@@ -121,12 +123,12 @@ const { title } = Astro.props;
   --shadow-elevated: 0 1px 2px rgba(0, 0, 0, 0.0625),
     0 8px 12px rgba(0, 0, 0, 0.125);
   --invert: invert(0);
-  --header-color: var(--smoke);
+  --header-color: var(--white);
   --accent: var(--pink);
   --accent-light: var(--white);
   --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-light));
-  --menu-card-color: var(--smoke);
-  --card-color: var(--smoke);
+  --menu-card-color: var(--white);
+  --card-color: var(--white);
   --bar: var(--muted);
 }
 
@@ -152,6 +154,8 @@ const { title } = Astro.props;
   --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-light));
   --menu-card-color: var(--darkest);
   --card-color: var(--dark);
+  --link: var(--primary);
+
 
 }
 
@@ -173,12 +177,16 @@ body {
   color: var(--text);
   box-sizing: border-box;
   flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary);
 }
 
 * {
   box-sizing: border-box;
   }
-
+  .content{
+    padding: 50px;
+  }
   .site-container {
   display: flex;
   flex-direction: column;
@@ -303,69 +311,8 @@ button.cta {
   );
 }
 
-.card {
-  background: var(--elevated);
-  color: var(--text);
-  border-radius: var(--radii-extra);
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-}
 
-.card.sunken {
-  background: var(--sunken);
-  box-shadow: none;
-}
 
-.card.interactive {
-  text-decoration: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.125s ease-in-out, box-shadow 0.125s ease-in-out;
-}
-
-.card.interactive:hover,
-.card.interactive:focus {
-  transform: scale(1.0625);
-  box-shadow: var(--shadow-elevated);
-}
-
-input,
-textarea,
-select {
-  background: var(--elevated);
-  color: var(--text);
-  font-family: inherit;
-  border-radius: var(--radii-small);
-  border: 0;
-  font-size: inherit;
-  padding: var(--spacing-2);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-input::-webkit-input-placeholder,
-input::-moz-placeholder,
-input:-ms-input-placeholder,
-textarea::-webkit-input-placeholder,
-textarea::-moz-placeholder,
-textarea:-ms-input-placeholder,
-select::-webkit-input-placeholder,
-select::-moz-placeholder,
-select:-ms-input-placeholder {
-  color: var(--muted);
-}
-
-input[type="search"]::-webkit-search-decoration,
-textarea[type="search"]::-webkit-search-decoration,
-select[type="search"]::-webkit-search-decoration {
-  display: none;
-}
-
-input[type="checkbox"] {
-  -webkit-appearance: checkbox;
-  -moz-appearance: checkbox;
-  appearance: checkbox;
-}
 
 label {
   color: var(--text);
@@ -380,143 +327,12 @@ label.horizontal {
   display: flex;
 }
 
-.slider {
-  color: var(--primary);
-}
-
-.form-hidden {
-  position: absolute;
-  height: 1px;
-  width: 1px;
-  clip: rect(1px, 1px, 1px, 1px);
-  white-space: nowrap;
-}
 
 .container {
   width: 100%;
   margin: auto;
   padding-left: var(--spacing-3);
   padding-right: var(--spacing-3);
-}
-
-h1 {
-  font-size: var(--font-5);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-heading);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-h2 {
-  font-size: var(--font-4);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-heading);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-h3 {
-  font-size: var(--font-3);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-heading);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-h4 {
-  font-size: var(--font-2);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-heading);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-h5 {
-  font-size: var(--font-1);
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-heading);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-h6 {
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-heading);
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-p {
-  color: var(--text);
-  font-weight: var(--font-weight-body);
-  line-height: var(--line-height-body);
-  margin-top: var(--spacing-3);
-  margin-bottom: var(--spacing-3);
-}
-
-img {
-  max-width: 100%;
-}
-
-hr {
-  border: 0;
-  border-bottom: 1px solid var(--border);
-}
-
-a {
-  color: var(--primary);
-  text-decoration: underline;
-  text-underline-position: under;
-}
-
-a:focus,
-a:hover {
-  text-decoration-style: wavy;
-  text-decoration-skip-ink: none;
-}
-
-pre {
-  font-family: "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
-  font-size: var(--font-1);
-  padding: var(--spacing-3);
-  color: var(--text);
-  background: var(--sunken);
-  overflow: auto;
-  border-radius: var(--radii-default);
-  white-space: inherit;
-}
-
-pre > code {
-  color: inherit;
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-code {
-  font-family: "SF Mono", "Roboto Mono", Menlo, Consolas, monospace;
-  font-size: inherit;
-  color: var(--pink);
-  background: var(--sunken);
-  overflow: auto;
-  border-radius: var(--radii-small);
-  margin-left: var(--spacing-1);
-  margin-right: var(--spacing-1);
-  padding-left: var(--spacing-1);
-  padding-right: var(--spacing-1);
-}
-
-p > code,
-li > code {
-  color: var(--blue);
-  font-size: 0.875em;
-}
-
-p > a > code,
-li > a > code {
-  color: var(--blue);
-  font-size: 0.875em;
 }
 
 li {

@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/DocumentLayout.astro
+title: Plugin Cheat-sheet
 ---
 
 ## Komendy Minecraft

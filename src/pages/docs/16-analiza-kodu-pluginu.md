@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/DocumentLayout.astro
+title: Analiza kody pluginów
 ---
 
 # Analiza kodu pluginów

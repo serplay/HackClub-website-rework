@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/DocumentLayout.astro
+title: Minecraft
 ---
 
 # Minecraft development

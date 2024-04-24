@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/DocumentLayout.astro
+title: Svelte-chatbot
 ---
 
 # Svelte AI chatbot

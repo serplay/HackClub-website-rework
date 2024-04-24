@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/DocumentLayout.astro
+title: Wersjonowanie
 ---
 
 # Wersjonowanie przy użyciu Git i GitHub Desktop

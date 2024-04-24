@@ -12,7 +12,7 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
             </div>
             <div class="middle-section">
                 <a href="/">
-                    <Icon name="ALOPB-logo" class="logo"/>
+                    <Icon name="logo" class="logo"/>
                 </a>
             </div>
             <div class="right-section">
@@ -38,8 +38,8 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
       justify-content: space-between;
       align-items: center;
       padding: 10px 20px;
-      background-color:var(--header-color);
-      color: white;
+      background-color: var(--header-color);
+      color: var(--text);
     }
   
     .bottom-bar {
@@ -64,7 +64,7 @@ import ThemeSwitch from "../components/ThemeSwitch.astro";
         filter: var(--invert);
     }
     .theme-button, .login-button {
-      transition: 
+      transition: background-color 0.3s;
     }
   
     .menu-button:hover, .theme-button:hover, .login-button:hover {

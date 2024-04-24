@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/DocumentLayout.astro
+title: Generator-zdjęć
 ---
 
 # Omówienie generatora zdjęć AI

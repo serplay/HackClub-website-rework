@@ -34,4 +34,3 @@ Masz jakieś pytania? Śmiało napisz do nas na [hackclub@nazwaszkoły.edu](mail
 
 ![Członkowie HackClub](/ścieżka/do/zdjęcia_członków.png)
 
----

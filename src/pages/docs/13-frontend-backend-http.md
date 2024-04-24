@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/DocumentLayout.astro
+title: Frontend/Backend http
 ---
 
 # Frontend, backend i HTTP

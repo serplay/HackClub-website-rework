@@ -1,5 +1,6 @@
 ---
 layout: ../../layouts/DocumentLayout.astro
+title: Konsola
 ---
 
 # Konsola - wstęp
