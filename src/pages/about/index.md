@@ -1,5 +1,6 @@
 ---
-layout: ../../layouts/Layout.astro
+
+layout: ../../layouts/Layout-md.astro
 title: Hackclub about
 author: serplay
 description: dane
